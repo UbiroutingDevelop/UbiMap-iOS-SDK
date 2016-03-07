@@ -18,7 +18,7 @@ typedef void (^statusBlock)(int status);
 
 @interface UbiMapDownloader : NSObject
 
-@property(weak,nonatomic)statusBlock status;
+@property(copy,nonatomic)statusBlock status;
 
 /**
  *  清楚缓存文件

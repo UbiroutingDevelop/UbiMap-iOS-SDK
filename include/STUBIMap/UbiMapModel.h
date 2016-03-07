@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //区域实例对象基类，提供区域对象公有属性
 
@@ -17,5 +18,7 @@
 @property(assign,nonatomic)float x;
 
 @property(assign,nonatomic)float y;
+
+@property(strong,nonatomic)UIImage *iconImage;
 
 @end
