@@ -8,11 +8,23 @@
 
 #import "UbiMapModel.h"
 
+/*area_type 类型定义*/
+
+#define AREA_WALL 30
+#define AREA_EMPTY 32
+#define AREA_SHOP 1
+#define AREA_FOOD 2
+#define AREA_PARK 0
+#define AREA_OFFICE 3
+#define AREA_FUNCTIONAL 4
+#define AREA_UNKNOWN 99
+
 //area数据模型，继承自UbiMapModel，有独有的属性
 
 @interface UbiMapArea : UbiMapModel
 
 @property(strong,nonatomic)NSString *name;
 
+@property(assign,nonatomic)uint32_t type;
 
 @end

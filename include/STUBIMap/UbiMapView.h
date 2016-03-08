@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "UbiMapModel.h"
+typedef struct {
+    uint64_t idd;
+    int16_t area;
+    uint32_t width;
+    uint32_t height;
+    int32_t angle;
+    float scale;
+} CurrentFloor;
 
 @protocol mapViewDataDelegate <NSObject>
 @required
@@ -21,7 +29,10 @@
 @end
 
 @interface UbiMapView : UIView
-
+{
+    @public
+    CurrentFloor show_currentfloor;
+}
 @property(weak,nonatomic)id<mapViewDataDelegate>dataDelegate;
 
 //位图模式
