@@ -31,7 +31,7 @@
 
 //mark数据模型，继承自UbiMapModel，有独有的属性
 
-@interface UbiMapMark : UbiMapModel
+@interface UbiMapMark : UbiMapModel<NSCoding>
 
 @property(assign,nonatomic)uint32_t type;
 

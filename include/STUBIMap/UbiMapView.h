@@ -30,7 +30,6 @@ typedef struct {
 
 @interface UbiMapView : UIView
 {
-    @public
     CurrentFloor show_currentfloor;
 }
 @property(weak,nonatomic)id<mapViewDataDelegate>dataDelegate;
@@ -96,5 +95,9 @@ typedef struct {
  *  @param end   终点数据模型对象
  */
 - (void)navigateWithStart:(UbiMapModel *)start andEnd:(UbiMapModel *)end;
+
+#pragma -mark getter
+
+- (CurrentFloor)show_currentfloor;
 
 @end

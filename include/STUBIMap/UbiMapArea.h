@@ -11,7 +11,7 @@
 /*area_type 类型定义*/
 
 #define AREA_WALL 30
-#define AREA_EMPTY 32
+#define AREA_EMPTY 31
 #define AREA_SHOP 1
 #define AREA_FOOD 2
 #define AREA_PARK 0
@@ -21,7 +21,7 @@
 
 //area数据模型，继承自UbiMapModel，有独有的属性
 
-@interface UbiMapArea : UbiMapModel
+@interface UbiMapArea : UbiMapModel<NSCoding>
 
 @property(strong,nonatomic)NSString *name;
 
