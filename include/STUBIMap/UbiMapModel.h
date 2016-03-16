@@ -21,4 +21,6 @@
 
 @property(strong,nonatomic)UIImage *iconImage;
 
+@property(assign,nonatomic)uint64_t floor;
+
 @end

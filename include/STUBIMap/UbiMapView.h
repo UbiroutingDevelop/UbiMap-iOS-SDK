@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "UbiMapModel.h"
-typedef struct {
-    uint64_t idd;
-    int16_t area;
-    uint32_t width;
-    uint32_t height;
-    int32_t angle;
-    float scale;
-} CurrentFloor;
 
 @protocol mapViewDataDelegate <NSObject>
 @required
@@ -29,9 +21,9 @@ typedef struct {
 @end
 
 @interface UbiMapView : UIView
-{
-    CurrentFloor show_currentfloor;
-}
+//当前建筑所有楼层信息，用于初始化定位SDK,内部为UbiMapFloor的object.
+@property(strong,nonatomic)NSMutableArray *floorModels;
+
 @property(weak,nonatomic)id<mapViewDataDelegate>dataDelegate;
 
 //位图模式
@@ -95,9 +87,5 @@ typedef struct {
  *  @param end   终点数据模型对象
  */
 - (void)navigateWithStart:(UbiMapModel *)start andEnd:(UbiMapModel *)end;
-
-#pragma -mark getter
-
-- (CurrentFloor)show_currentfloor;
 
 @end
