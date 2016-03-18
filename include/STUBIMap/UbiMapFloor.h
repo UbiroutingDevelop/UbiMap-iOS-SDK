@@ -22,4 +22,6 @@
 
 @property(assign,nonatomic)float scale;
 
+@property(strong,nonatomic)NSString *alias;
+
 @end
