@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UbiMapModel.h"
 
+typedef NS_ENUM(NSInteger, LocationMode) {
+    LocationModeBeacon = 0,//圆形点位点
+    LocationModeMagnetism, //指针型定位点
+};
+
 @protocol mapViewDataDelegate <NSObject>
 @required
 /**
@@ -26,18 +31,27 @@
 
 @property(weak,nonatomic)id<mapViewDataDelegate>dataDelegate;
 
-//位图模式
-- (instancetype)initWithFrame:(CGRect)frame WithFloorId:(NSInteger)floorId Map:(UIImage *)imageMap;
+/**
+ *  位图初始化
+ *
+ *  @param frame    frame
+ *  @param floorId  floorId
+ *  @param imageMap mapImage
+ *  @param mode  moveMode
+ *
+ *  @return object
+ */
+- (instancetype)initWithFrame:(CGRect)frame WithFloorId:(NSInteger)floorId Map:(UIImage *)imageMap LocationMode:(LocationMode)mode;
 /**
  *  矢量图初始化
  *
  *  @param frame frame
- *
  *  @param mapId mapID
+ *  @param mode moveMode
  *
  *  @return object
  */
-- (instancetype)initWithFrame:(CGRect)frame WithMapId:(NSInteger)mapId;
+- (instancetype)initWithFrame:(CGRect)frame WithMapId:(NSInteger)mapId LocationMode:(LocationMode)mode;
 /**
  *  更新坐标点
  *
@@ -56,7 +70,13 @@
  *  @param floor target floor
  */
 - (void)switchToFloor:(NSInteger)floor;
-//- (void)switchToFloor:(NSInteger)floor andImageMap:(UIImage *)image;
+/**
+ *  位图切换楼层
+ *
+ *  @param floor floor
+ *  @param image map
+ */
+- (void)switchToFloor:(NSInteger)floor andImageMap:(UIImage *)image;
 /**
  *  跟随模式，默认关闭
  */
